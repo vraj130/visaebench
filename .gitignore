@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual environments
+.venv/
+.visaebench/
+venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Data / checkpoints (never commit large files)
+*.pt
+*.pth
+*.ckpt
+*.dat
+*.arrow
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Environment
+.env

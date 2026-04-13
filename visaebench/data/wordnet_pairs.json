@@ -1,0 +1,2642 @@
+{
+  "description": "Precomputed ImageNet WordNet hierarchy for M7 absorption metric",
+  "num_pairs": 1012,
+  "num_sibling_groups": 139,
+  "depth_1_groups": 92,
+  "depth_2_groups": 47,
+  "sibling_groups": {
+    "finch.n.01": {
+      "class_indices": [
+        10,
+        11,
+        12,
+        13
+      ],
+      "class_names": [
+        "brambling",
+        "goldfinch",
+        "house_finch",
+        "junco"
+      ],
+      "hierarchy_depth": 1
+    },
+    "turtle.n.02": {
+      "class_indices": [
+        35,
+        36,
+        37
+      ],
+      "class_names": [
+        "mud_turtle",
+        "terrapin",
+        "box_turtle"
+      ],
+      "hierarchy_depth": 1
+    },
+    "colubrid_snake.n.01": {
+      "class_indices": [
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60
+      ],
+      "class_names": [
+        "thunder_snake",
+        "ringneck_snake",
+        "hognose_snake",
+        "green_snake",
+        "king_snake",
+        "garter_snake",
+        "water_snake",
+        "vine_snake",
+        "night_snake"
+      ],
+      "hierarchy_depth": 1
+    },
+    "spider.n.01": {
+      "class_indices": [
+        72,
+        73,
+        74,
+        75,
+        76,
+        77
+      ],
+      "class_names": [
+        "black_and_gold_garden_spider",
+        "barn_spider",
+        "garden_spider",
+        "black_widow",
+        "tarantula",
+        "wolf_spider"
+      ],
+      "hierarchy_depth": 1
+    },
+    "grouse.n.02": {
+      "class_indices": [
+        80,
+        81,
+        82,
+        83
+      ],
+      "class_names": [
+        "black_grouse",
+        "ptarmigan",
+        "ruffed_grouse",
+        "prairie_chicken"
+      ],
+      "hierarchy_depth": 1
+    },
+    "gastropod.n.01": {
+      "class_indices": [
+        112,
+        113,
+        114,
+        115
+      ],
+      "class_names": [
+        "conch",
+        "snail",
+        "slug",
+        "sea_slug"
+      ],
+      "hierarchy_depth": 1
+    },
+    "crab.n.01": {
+      "class_indices": [
+        118,
+        119,
+        120,
+        121
+      ],
+      "class_names": [
+        "Dungeness_crab",
+        "rock_crab",
+        "fiddler_crab",
+        "king_crab"
+      ],
+      "hierarchy_depth": 1
+    },
+    "wading_bird.n.01": {
+      "class_indices": [
+        129,
+        130,
+        134,
+        135,
+        138
+      ],
+      "class_names": [
+        "spoonbill",
+        "flamingo",
+        "crane",
+        "limpkin",
+        "bustard"
+      ],
+      "hierarchy_depth": 1
+    },
+    "toy_dog.n.01": {
+      "class_indices": [
+        151,
+        152,
+        153,
+        154,
+        155,
+        158
+      ],
+      "class_names": [
+        "Chihuahua",
+        "Japanese_spaniel",
+        "Maltese_dog",
+        "Pekinese",
+        "Shih-Tzu",
+        "toy_terrier"
+      ],
+      "hierarchy_depth": 1
+    },
+    "hound.n.01": {
+      "class_indices": [
+        160,
+        161,
+        162,
+        163,
+        164,
+        168,
+        173,
+        174,
+        175,
+        176,
+        177,
+        178
+      ],
+      "class_names": [
+        "Afghan_hound",
+        "basset",
+        "beagle",
+        "bloodhound",
+        "bluetick",
+        "redbone",
+        "Ibizan_hound",
+        "Norwegian_elkhound",
+        "otterhound",
+        "Saluki",
+        "Scottish_deerhound",
+        "Weimaraner"
+      ],
+      "hierarchy_depth": 1
+    },
+    "terrier.n.01": {
+      "class_indices": [
+        181,
+        182,
+        183,
+        184,
+        185,
+        186,
+        187,
+        191,
+        192,
+        193,
+        194,
+        195,
+        199,
+        200,
+        201,
+        202,
+        203,
+        204
+      ],
+      "class_names": [
+        "Bedlington_terrier",
+        "Border_terrier",
+        "Kerry_blue_terrier",
+        "Irish_terrier",
+        "Norfolk_terrier",
+        "Norwich_terrier",
+        "Yorkshire_terrier",
+        "Airedale",
+        "cairn",
+        "Australian_terrier",
+        "Dandie_Dinmont",
+        "Boston_bull",
+        "Scotch_terrier",
+        "Tibetan_terrier",
+        "silky_terrier",
+        "soft-coated_wheaten_terrier",
+        "West_Highland_white_terrier",
+        "Lhasa"
+      ],
+      "hierarchy_depth": 1
+    },
+    "schnauzer.n.01": {
+      "class_indices": [
+        196,
+        197,
+        198
+      ],
+      "class_names": [
+        "miniature_schnauzer",
+        "giant_schnauzer",
+        "standard_schnauzer"
+      ],
+      "hierarchy_depth": 1
+    },
+    "retriever.n.01": {
+      "class_indices": [
+        205,
+        206,
+        207,
+        208,
+        209
+      ],
+      "class_names": [
+        "flat-coated_retriever",
+        "curly-coated_retriever",
+        "golden_retriever",
+        "Labrador_retriever",
+        "Chesapeake_Bay_retriever"
+      ],
+      "hierarchy_depth": 1
+    },
+    "setter.n.02": {
+      "class_indices": [
+        212,
+        213,
+        214
+      ],
+      "class_names": [
+        "English_setter",
+        "Irish_setter",
+        "Gordon_setter"
+      ],
+      "hierarchy_depth": 1
+    },
+    "spaniel.n.01": {
+      "class_indices": [
+        215,
+        216,
+        219,
+        220
+      ],
+      "class_names": [
+        "Brittany_spaniel",
+        "clumber",
+        "cocker_spaniel",
+        "Sussex_spaniel"
+      ],
+      "hierarchy_depth": 1
+    },
+    "shepherd_dog.n.01": {
+      "class_indices": [
+        226,
+        227,
+        228,
+        229,
+        230,
+        231,
+        232,
+        233,
+        234,
+        235
+      ],
+      "class_names": [
+        "briard",
+        "kelpie",
+        "komondor",
+        "Old_English_sheepdog",
+        "Shetland_sheepdog",
+        "collie",
+        "Border_collie",
+        "Bouvier_des_Flandres",
+        "Rottweiler",
+        "German_shepherd"
+      ],
+      "hierarchy_depth": 1
+    },
+    "pinscher.n.01": {
+      "class_indices": [
+        236,
+        237,
+        252
+      ],
+      "class_names": [
+        "Doberman",
+        "miniature_pinscher",
+        "affenpinscher"
+      ],
+      "hierarchy_depth": 1
+    },
+    "sennenhunde.n.01": {
+      "class_indices": [
+        238,
+        239,
+        240,
+        241
+      ],
+      "class_names": [
+        "Greater_Swiss_Mountain_dog",
+        "Bernese_mountain_dog",
+        "Appenzeller",
+        "EntleBucher"
+      ],
+      "hierarchy_depth": 1
+    },
+    "working_dog.n.01": {
+      "class_indices": [
+        242,
+        243,
+        246,
+        247,
+        248
+      ],
+      "class_names": [
+        "boxer",
+        "bull_mastiff",
+        "Great_Dane",
+        "Saint_Bernard",
+        "Eskimo_dog"
+      ],
+      "hierarchy_depth": 1
+    },
+    "dog.n.01": {
+      "class_indices": [
+        251,
+        253,
+        254,
+        255,
+        256,
+        257,
+        268
+      ],
+      "class_names": [
+        "dalmatian",
+        "basenji",
+        "pug",
+        "Leonberg",
+        "Newfoundland",
+        "Great_Pyrenees",
+        "Mexican_hairless"
+      ],
+      "hierarchy_depth": 1
+    },
+    "spitz.n.01": {
+      "class_indices": [
+        258,
+        259,
+        260,
+        261
+      ],
+      "class_names": [
+        "Samoyed",
+        "Pomeranian",
+        "chow",
+        "keeshond"
+      ],
+      "hierarchy_depth": 1
+    },
+    "poodle.n.01": {
+      "class_indices": [
+        265,
+        266,
+        267
+      ],
+      "class_names": [
+        "toy_poodle",
+        "miniature_poodle",
+        "standard_poodle"
+      ],
+      "hierarchy_depth": 1
+    },
+    "wolf.n.01": {
+      "class_indices": [
+        269,
+        270,
+        271,
+        272
+      ],
+      "class_names": [
+        "timber_wolf",
+        "white_wolf",
+        "red_wolf",
+        "coyote"
+      ],
+      "hierarchy_depth": 1
+    },
+    "wild_dog.n.01": {
+      "class_indices": [
+        273,
+        274,
+        275
+      ],
+      "class_names": [
+        "dingo",
+        "dhole",
+        "African_hunting_dog"
+      ],
+      "hierarchy_depth": 1
+    },
+    "fox.n.01": {
+      "class_indices": [
+        277,
+        278,
+        279,
+        280
+      ],
+      "class_names": [
+        "red_fox",
+        "kit_fox",
+        "Arctic_fox",
+        "grey_fox"
+      ],
+      "hierarchy_depth": 1
+    },
+    "domestic_cat.n.01": {
+      "class_indices": [
+        281,
+        282,
+        283,
+        284,
+        285
+      ],
+      "class_names": [
+        "tabby",
+        "tiger_cat",
+        "Persian_cat",
+        "Siamese_cat",
+        "Egyptian_cat"
+      ],
+      "hierarchy_depth": 1
+    },
+    "big_cat.n.01": {
+      "class_indices": [
+        288,
+        289,
+        290,
+        291,
+        292,
+        293
+      ],
+      "class_names": [
+        "leopard",
+        "snow_leopard",
+        "jaguar",
+        "lion",
+        "tiger",
+        "cheetah"
+      ],
+      "hierarchy_depth": 1
+    },
+    "bear.n.01": {
+      "class_indices": [
+        294,
+        295,
+        296,
+        297
+      ],
+      "class_names": [
+        "brown_bear",
+        "American_black_bear",
+        "ice_bear",
+        "sloth_bear"
+      ],
+      "hierarchy_depth": 1
+    },
+    "beetle.n.01": {
+      "class_indices": [
+        300,
+        301,
+        302,
+        303,
+        304,
+        307
+      ],
+      "class_names": [
+        "tiger_beetle",
+        "ladybug",
+        "ground_beetle",
+        "long-horned_beetle",
+        "leaf_beetle",
+        "weevil"
+      ],
+      "hierarchy_depth": 1
+    },
+    "butterfly.n.01": {
+      "class_indices": [
+        322,
+        325,
+        326
+      ],
+      "class_names": [
+        "ringlet",
+        "sulphur_butterfly",
+        "lycaenid"
+      ],
+      "hierarchy_depth": 1
+    },
+    "echinoderm.n.01": {
+      "class_indices": [
+        327,
+        328,
+        329
+      ],
+      "class_names": [
+        "starfish",
+        "sea_urchin",
+        "sea_cucumber"
+      ],
+      "hierarchy_depth": 1
+    },
+    "rodent.n.01": {
+      "class_indices": [
+        333,
+        334,
+        336,
+        337
+      ],
+      "class_names": [
+        "hamster",
+        "porcupine",
+        "marmot",
+        "beaver"
+      ],
+      "hierarchy_depth": 1
+    },
+    "swine.n.01": {
+      "class_indices": [
+        341,
+        342,
+        343
+      ],
+      "class_names": [
+        "hog",
+        "wild_boar",
+        "warthog"
+      ],
+      "hierarchy_depth": 1
+    },
+    "antelope.n.01": {
+      "class_indices": [
+        351,
+        352,
+        353
+      ],
+      "class_names": [
+        "hartebeest",
+        "impala",
+        "gazelle"
+      ],
+      "hierarchy_depth": 1
+    },
+    "musteline_mammal.n.01": {
+      "class_indices": [
+        356,
+        357,
+        358,
+        359,
+        360,
+        361,
+        362
+      ],
+      "class_names": [
+        "weasel",
+        "mink",
+        "polecat",
+        "black-footed_ferret",
+        "otter",
+        "skunk",
+        "badger"
+      ],
+      "hierarchy_depth": 1
+    },
+    "great_ape.n.01": {
+      "class_indices": [
+        365,
+        366,
+        367
+      ],
+      "class_names": [
+        "orangutan",
+        "gorilla",
+        "chimpanzee"
+      ],
+      "hierarchy_depth": 1
+    },
+    "old_world_monkey.n.01": {
+      "class_indices": [
+        370,
+        371,
+        372,
+        373,
+        374,
+        375,
+        376
+      ],
+      "class_names": [
+        "guenon",
+        "patas",
+        "baboon",
+        "macaque",
+        "langur",
+        "colobus",
+        "proboscis_monkey"
+      ],
+      "hierarchy_depth": 1
+    },
+    "new_world_monkey.n.01": {
+      "class_indices": [
+        377,
+        378,
+        379,
+        380,
+        381,
+        382
+      ],
+      "class_names": [
+        "marmoset",
+        "capuchin",
+        "howler_monkey",
+        "titi",
+        "spider_monkey",
+        "squirrel_monkey"
+      ],
+      "hierarchy_depth": 1
+    },
+    "structure.n.01": {
+      "class_indices": [
+        406,
+        506,
+        562
+      ],
+      "class_names": [
+        "altar",
+        "coil",
+        "fountain"
+      ],
+      "hierarchy_depth": 1
+    },
+    "car.n.01": {
+      "class_indices": [
+        407,
+        436,
+        468,
+        511,
+        609,
+        627,
+        661,
+        751,
+        817
+      ],
+      "class_names": [
+        "ambulance",
+        "beach_wagon",
+        "cab",
+        "convertible",
+        "jeep",
+        "limousine",
+        "Model_T",
+        "racer",
+        "sports_car"
+      ],
+      "hierarchy_depth": 1
+    },
+    "motor_vehicle.n.01": {
+      "class_indices": [
+        408,
+        573,
+        803
+      ],
+      "class_names": [
+        "amphibian",
+        "go-kart",
+        "snowplow"
+      ],
+      "hierarchy_depth": 1
+    },
+    "clock.n.01": {
+      "class_indices": [
+        409,
+        530,
+        892
+      ],
+      "class_names": [
+        "analog_clock",
+        "digital_clock",
+        "wall_clock"
+      ],
+      "hierarchy_depth": 1
+    },
+    "bag.n.01": {
+      "class_indices": [
+        414,
+        636,
+        728,
+        748,
+        797
+      ],
+      "class_names": [
+        "backpack",
+        "mailbag",
+        "plastic_bag",
+        "purse",
+        "sleeping_bag"
+      ],
+      "hierarchy_depth": 1
+    },
+    "gymnastic_apparatus.n.01": {
+      "class_indices": [
+        416,
+        602,
+        702
+      ],
+      "class_names": [
+        "balance_beam",
+        "horizontal_bar",
+        "parallel_bars"
+      ],
+      "hierarchy_depth": 1
+    },
+    "pen.n.01": {
+      "class_indices": [
+        418,
+        563,
+        749
+      ],
+      "class_names": [
+        "ballpoint",
+        "fountain_pen",
+        "quill"
+      ],
+      "hierarchy_depth": 1
+    },
+    "barrier.n.01": {
+      "class_indices": [
+        421,
+        460,
+        525
+      ],
+      "class_names": [
+        "bannister",
+        "breakwater",
+        "dam"
+      ],
+      "hierarchy_depth": 1
+    },
+    "chair.n.01": {
+      "class_indices": [
+        423,
+        559,
+        765
+      ],
+      "class_names": [
+        "barber_chair",
+        "folding_chair",
+        "rocking_chair"
+      ],
+      "hierarchy_depth": 1
+    },
+    "shop.n.01": {
+      "class_indices": [
+        424,
+        454,
+        467,
+        509,
+        788,
+        860,
+        865
+      ],
+      "class_names": [
+        "barbershop",
+        "bookshop",
+        "butcher_shop",
+        "confectionery",
+        "shoe_shop",
+        "tobacco_shop",
+        "toyshop"
+      ],
+      "hierarchy_depth": 1
+    },
+    "vessel.n.03": {
+      "class_indices": [
+        427,
+        435,
+        463,
+        618,
+        666,
+        725,
+        876
+      ],
+      "class_names": [
+        "barrel",
+        "bathtub",
+        "bucket",
+        "ladle",
+        "mortar",
+        "pitcher",
+        "tub"
+      ],
+      "hierarchy_depth": 1
+    },
+    "baby_bed.n.01": {
+      "class_indices": [
+        431,
+        516,
+        520
+      ],
+      "class_names": [
+        "bassinet",
+        "cradle",
+        "crib"
+      ],
+      "hierarchy_depth": 1
+    },
+    "cap.n.01": {
+      "class_indices": [
+        433,
+        667,
+        793
+      ],
+      "class_names": [
+        "bathing_cap",
+        "mortarboard",
+        "shower_cap"
+      ],
+      "hierarchy_depth": 1
+    },
+    "hat.n.01": {
+      "class_indices": [
+        439,
+        452,
+        515,
+        808
+      ],
+      "class_names": [
+        "bearskin",
+        "bonnet",
+        "cowboy_hat",
+        "sombrero"
+      ],
+      "hierarchy_depth": 1
+    },
+    "bottle.n.01": {
+      "class_indices": [
+        440,
+        720,
+        737,
+        898,
+        907
+      ],
+      "class_names": [
+        "beer_bottle",
+        "pill_bottle",
+        "pop_bottle",
+        "water_bottle",
+        "wine_bottle"
+      ],
+      "hierarchy_depth": 1
+    },
+    "piece_of_cloth.n.01": {
+      "class_indices": [
+        443,
+        533,
+        591
+      ],
+      "class_names": [
+        "bib",
+        "dishrag",
+        "handkerchief"
+      ],
+      "hierarchy_depth": 1
+    },
+    "swimsuit.n.01": {
+      "class_indices": [
+        445,
+        639,
+        842
+      ],
+      "class_names": [
+        "bikini",
+        "maillot",
+        "swimming_trunks"
+      ],
+      "hierarchy_depth": 1
+    },
+    "necktie.n.01": {
+      "class_indices": [
+        451,
+        457,
+        906
+      ],
+      "class_names": [
+        "bolo_tie",
+        "bow_tie",
+        "Windsor_tie"
+      ],
+      "hierarchy_depth": 1
+    },
+    "memorial.n.03": {
+      "class_indices": [
+        458,
+        649,
+        873
+      ],
+      "class_names": [
+        "brass",
+        "megalith",
+        "triumphal_arch"
+      ],
+      "hierarchy_depth": 1
+    },
+    "fastener.n.02": {
+      "class_indices": [
+        464,
+        616,
+        677,
+        783
+      ],
+      "class_names": [
+        "buckle",
+        "knot",
+        "nail",
+        "screw"
+      ],
+      "hierarchy_depth": 1
+    },
+    "body_armor.n.01": {
+      "class_indices": [
+        465,
+        490,
+        524
+      ],
+      "class_names": [
+        "bulletproof_vest",
+        "chain_mail",
+        "cuirass"
+      ],
+      "hierarchy_depth": 1
+    },
+    "pot.n.01": {
+      "class_indices": [
+        469,
+        505,
+        849
+      ],
+      "class_names": [
+        "caldron",
+        "coffeepot",
+        "teapot"
+      ],
+      "hierarchy_depth": 1
+    },
+    "box.n.01": {
+      "class_indices": [
+        478,
+        492,
+        519,
+        637,
+        709
+      ],
+      "class_names": [
+        "carton",
+        "chest",
+        "crate",
+        "mailbox",
+        "pencil_box"
+      ],
+      "hierarchy_depth": 1
+    },
+    "wheel.n.01": {
+      "class_indices": [
+        479,
+        694,
+        723,
+        739
+      ],
+      "class_names": [
+        "car_wheel",
+        "paddlewheel",
+        "pinwheel",
+        "potter's_wheel"
+      ],
+      "hierarchy_depth": 1
+    },
+    "container.n.01": {
+      "class_indices": [
+        481,
+        549,
+        738
+      ],
+      "class_names": [
+        "cassette",
+        "envelope",
+        "pot"
+      ],
+      "hierarchy_depth": 1
+    },
+    "electronic_equipment.n.01": {
+      "class_indices": [
+        482,
+        485,
+        662,
+        664,
+        688,
+        848
+      ],
+      "class_names": [
+        "cassette_player",
+        "CD_player",
+        "modem",
+        "monitor",
+        "oscilloscope",
+        "tape_player"
+      ],
+      "hierarchy_depth": 1
+    },
+    "fence.n.01": {
+      "class_indices": [
+        489,
+        716,
+        825
+      ],
+      "class_names": [
+        "chainlink_fence",
+        "picket_fence",
+        "stone_wall"
+      ],
+      "hierarchy_depth": 1
+    },
+    "percussion_instrument.n.01": {
+      "class_indices": [
+        494,
+        541,
+        577,
+        641,
+        642,
+        822
+      ],
+      "class_names": [
+        "chime",
+        "drum",
+        "gong",
+        "maraca",
+        "marimba",
+        "steel_drum"
+      ],
+      "hierarchy_depth": 1
+    },
+    "brass.n.02": {
+      "class_indices": [
+        513,
+        566,
+        875
+      ],
+      "class_names": [
+        "cornet",
+        "French_horn",
+        "trombone"
+      ],
+      "hierarchy_depth": 1
+    },
+    "white_goods.n.01": {
+      "class_indices": [
+        534,
+        760,
+        897
+      ],
+      "class_names": [
+        "dishwasher",
+        "refrigerator",
+        "washer"
+      ],
+      "hierarchy_depth": 1
+    },
+    "roof.n.01": {
+      "class_indices": [
+        538,
+        853,
+        858,
+        884
+      ],
+      "class_names": [
+        "dome",
+        "thatch",
+        "tile_roof",
+        "vault"
+      ],
+      "hierarchy_depth": 1
+    },
+    "stick.n.01": {
+      "class_indices": [
+        542,
+        644,
+        816
+      ],
+      "class_names": [
+        "drumstick",
+        "matchstick",
+        "spindle"
+      ],
+      "hierarchy_depth": 1
+    },
+    "truck.n.01": {
+      "class_indices": [
+        555,
+        569,
+        717,
+        864,
+        867
+      ],
+      "class_names": [
+        "fire_engine",
+        "garbage_truck",
+        "pickup",
+        "tow_truck",
+        "trailer_truck"
+      ],
+      "hierarchy_depth": 1
+    },
+    "screen.n.05": {
+      "class_indices": [
+        556,
+        669,
+        904
+      ],
+      "class_names": [
+        "fire_screen",
+        "mosquito_net",
+        "window_screen"
+      ],
+      "hierarchy_depth": 1
+    },
+    "self-propelled_vehicle.n.01": {
+      "class_indices": [
+        561,
+        757,
+        829,
+        866
+      ],
+      "class_names": [
+        "forklift",
+        "recreational_vehicle",
+        "streetcar",
+        "tractor"
+      ],
+      "hierarchy_depth": 1
+    },
+    "ball.n.01": {
+      "class_indices": [
+        574,
+        722,
+        747,
+        768,
+        805,
+        852,
+        890
+      ],
+      "class_names": [
+        "golf_ball",
+        "ping-pong_ball",
+        "punching_bag",
+        "rugby_ball",
+        "soccer_ball",
+        "tennis_ball",
+        "volleyball"
+      ],
+      "hierarchy_depth": 1
+    },
+    "building.n.01": {
+      "class_indices": [
+        580,
+        624,
+        727,
+        762
+      ],
+      "class_names": [
+        "greenhouse",
+        "library",
+        "planetarium",
+        "restaurant"
+      ],
+      "hierarchy_depth": 1
+    },
+    "toiletry.n.01": {
+      "class_indices": [
+        585,
+        631,
+        711
+      ],
+      "class_names": [
+        "hair_spray",
+        "lotion",
+        "perfume"
+      ],
+      "hierarchy_depth": 1
+    },
+    "military_vehicle.n.01": {
+      "class_indices": [
+        586,
+        847,
+        895
+      ],
+      "class_names": [
+        "half_track",
+        "tank",
+        "warplane"
+      ],
+      "hierarchy_depth": 1
+    },
+    "hand_tool.n.01": {
+      "class_indices": [
+        587,
+        726,
+        731,
+        784,
+        792
+      ],
+      "class_names": [
+        "hammer",
+        "plane",
+        "plunger",
+        "screwdriver",
+        "shovel"
+      ],
+      "hierarchy_depth": 1
+    },
+    "portable_computer.n.01": {
+      "class_indices": [
+        590,
+        620,
+        681
+      ],
+      "class_names": [
+        "hand-held_computer",
+        "laptop",
+        "notebook"
+      ],
+      "hierarchy_depth": 1
+    },
+    "skirt.n.02": {
+      "class_indices": [
+        601,
+        655,
+        689,
+        775
+      ],
+      "class_names": [
+        "hoopskirt",
+        "miniskirt",
+        "overskirt",
+        "sarong"
+      ],
+      "hierarchy_depth": 1
+    },
+    "cart.n.01": {
+      "class_indices": [
+        603,
+        612,
+        690
+      ],
+      "class_names": [
+        "horse_cart",
+        "jinrikisha",
+        "oxcart"
+      ],
+      "hierarchy_depth": 1
+    },
+    "device.n.01": {
+      "class_indices": [
+        626,
+        714,
+        761
+      ],
+      "class_names": [
+        "lighter",
+        "pick",
+        "remote_control"
+      ],
+      "hierarchy_depth": 1
+    },
+    "shoe.n.01": {
+      "class_indices": [
+        630,
+        770,
+        774
+      ],
+      "class_names": [
+        "Loafer",
+        "running_shoe",
+        "sandal"
+      ],
+      "hierarchy_depth": 1
+    },
+    "kitchen_appliance.n.01": {
+      "class_indices": [
+        651,
+        859,
+        891
+      ],
+      "class_names": [
+        "microwave",
+        "toaster",
+        "waffle_iron"
+      ],
+      "hierarchy_depth": 1
+    },
+    "bus.n.01": {
+      "class_indices": [
+        654,
+        779,
+        874
+      ],
+      "class_names": [
+        "minibus",
+        "school_bus",
+        "trolleybus"
+      ],
+      "hierarchy_depth": 1
+    },
+    "wheeled_vehicle.n.01": {
+      "class_indices": [
+        670,
+        870,
+        880
+      ],
+      "class_names": [
+        "motor_scooter",
+        "tricycle",
+        "unicycle"
+      ],
+      "hierarchy_depth": 1
+    },
+    "bridge.n.01": {
+      "class_indices": [
+        821,
+        839,
+        888
+      ],
+      "class_names": [
+        "steel_arch_bridge",
+        "suspension_bridge",
+        "viaduct"
+      ],
+      "hierarchy_depth": 1
+    },
+    "vegetable.n.01": {
+      "class_indices": [
+        943,
+        944,
+        946,
+        947
+      ],
+      "class_names": [
+        "cucumber",
+        "artichoke",
+        "cardoon",
+        "mushroom"
+      ],
+      "hierarchy_depth": 1
+    },
+    "edible_fruit.n.01": {
+      "class_indices": [
+        952,
+        953,
+        954,
+        955,
+        956,
+        957
+      ],
+      "class_names": [
+        "fig",
+        "pineapple",
+        "banana",
+        "jackfruit",
+        "custard_apple",
+        "pomegranate"
+      ],
+      "hierarchy_depth": 1
+    },
+    "dish.n.02": {
+      "class_indices": [
+        962,
+        963,
+        964,
+        965
+      ],
+      "class_names": [
+        "meat_loaf",
+        "pizza",
+        "potpie",
+        "burrito"
+      ],
+      "hierarchy_depth": 1
+    },
+    "fruit.n.01": {
+      "class_indices": [
+        988,
+        989,
+        998
+      ],
+      "class_names": [
+        "acorn",
+        "hip",
+        "ear"
+      ],
+      "hierarchy_depth": 1
+    },
+    "fungus.n.01": {
+      "class_indices": [
+        991,
+        993,
+        994,
+        995,
+        996,
+        997
+      ],
+      "class_names": [
+        "coral_fungus",
+        "gyromitra",
+        "stinkhorn",
+        "earthstar",
+        "hen-of-the-woods",
+        "bolete"
+      ],
+      "hierarchy_depth": 1
+    },
+    "bird.n.01": {
+      "class_indices": [
+        9,
+        23,
+        87,
+        88,
+        92,
+        93,
+        94,
+        95,
+        96
+      ],
+      "class_names": [
+        "ostrich",
+        "vulture",
+        "African_grey",
+        "macaw",
+        "bee_eater",
+        "hornbill",
+        "hummingbird",
+        "jacamar",
+        "toucan"
+      ],
+      "hierarchy_depth": 2
+    },
+    "oscine.n.01": {
+      "class_indices": [
+        10,
+        11,
+        12,
+        13,
+        15,
+        17,
+        18,
+        19
+      ],
+      "class_names": [
+        "brambling",
+        "goldfinch",
+        "house_finch",
+        "junco",
+        "robin",
+        "jay",
+        "magpie",
+        "chickadee"
+      ],
+      "hierarchy_depth": 2
+    },
+    "lizard.n.01": {
+      "class_indices": [
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48
+      ],
+      "class_names": [
+        "banded_gecko",
+        "common_iguana",
+        "American_chameleon",
+        "whiptail",
+        "agama",
+        "frilled_lizard",
+        "alligator_lizard",
+        "Gila_monster",
+        "green_lizard",
+        "African_chameleon",
+        "Komodo_dragon"
+      ],
+      "hierarchy_depth": 2
+    },
+    "snake.n.01": {
+      "class_indices": [
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        66
+      ],
+      "class_names": [
+        "thunder_snake",
+        "ringneck_snake",
+        "hognose_snake",
+        "green_snake",
+        "king_snake",
+        "garter_snake",
+        "water_snake",
+        "vine_snake",
+        "night_snake",
+        "horned_viper"
+      ],
+      "hierarchy_depth": 2
+    },
+    "invertebrate.n.01": {
+      "class_indices": [
+        69,
+        79,
+        107,
+        110,
+        111,
+        116,
+        327,
+        328,
+        329
+      ],
+      "class_names": [
+        "trilobite",
+        "centipede",
+        "jellyfish",
+        "flatworm",
+        "nematode",
+        "chiton",
+        "starfish",
+        "sea_urchin",
+        "sea_cucumber"
+      ],
+      "hierarchy_depth": 2
+    },
+    "arachnid.n.01": {
+      "class_indices": [
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78
+      ],
+      "class_names": [
+        "black_and_gold_garden_spider",
+        "barn_spider",
+        "garden_spider",
+        "black_widow",
+        "tarantula",
+        "wolf_spider",
+        "tick"
+      ],
+      "hierarchy_depth": 2
+    },
+    "game_bird.n.01": {
+      "class_indices": [
+        80,
+        81,
+        82,
+        83,
+        85,
+        86
+      ],
+      "class_names": [
+        "black_grouse",
+        "ptarmigan",
+        "ruffed_grouse",
+        "prairie_chicken",
+        "quail",
+        "partridge"
+      ],
+      "hierarchy_depth": 2
+    },
+    "aquatic_bird.n.01": {
+      "class_indices": [
+        100,
+        129,
+        130,
+        134,
+        135,
+        138
+      ],
+      "class_names": [
+        "black_swan",
+        "spoonbill",
+        "flamingo",
+        "crane",
+        "limpkin",
+        "bustard"
+      ],
+      "hierarchy_depth": 2
+    },
+    "mollusk.n.01": {
+      "class_indices": [
+        112,
+        113,
+        114,
+        115,
+        117
+      ],
+      "class_names": [
+        "conch",
+        "snail",
+        "slug",
+        "sea_slug",
+        "chambered_nautilus"
+      ],
+      "hierarchy_depth": 2
+    },
+    "decapod_crustacean.n.01": {
+      "class_indices": [
+        118,
+        119,
+        120,
+        121,
+        123
+      ],
+      "class_names": [
+        "Dungeness_crab",
+        "rock_crab",
+        "fiddler_crab",
+        "king_crab",
+        "spiny_lobster"
+      ],
+      "hierarchy_depth": 2
+    },
+    "hunting_dog.n.01": {
+      "class_indices": [
+        160,
+        161,
+        162,
+        163,
+        164,
+        168,
+        173,
+        174,
+        175,
+        176,
+        177,
+        178,
+        181,
+        182,
+        183,
+        184,
+        185,
+        186,
+        187,
+        191,
+        192,
+        193,
+        194,
+        195,
+        199,
+        200,
+        201,
+        202,
+        203,
+        204
+      ],
+      "class_names": [
+        "Afghan_hound",
+        "basset",
+        "beagle",
+        "bloodhound",
+        "bluetick",
+        "redbone",
+        "Ibizan_hound",
+        "Norwegian_elkhound",
+        "otterhound",
+        "Saluki",
+        "Scottish_deerhound",
+        "Weimaraner",
+        "Bedlington_terrier",
+        "Border_terrier",
+        "Kerry_blue_terrier",
+        "Irish_terrier",
+        "Norfolk_terrier",
+        "Norwich_terrier",
+        "Yorkshire_terrier",
+        "Airedale",
+        "cairn",
+        "Australian_terrier",
+        "Dandie_Dinmont",
+        "Boston_bull",
+        "Scotch_terrier",
+        "Tibetan_terrier",
+        "silky_terrier",
+        "soft-coated_wheaten_terrier",
+        "West_Highland_white_terrier",
+        "Lhasa"
+      ],
+      "hierarchy_depth": 2
+    },
+    "sporting_dog.n.01": {
+      "class_indices": [
+        205,
+        206,
+        207,
+        208,
+        209,
+        210,
+        211,
+        212,
+        213,
+        214,
+        215,
+        216,
+        219,
+        220
+      ],
+      "class_names": [
+        "flat-coated_retriever",
+        "curly-coated_retriever",
+        "golden_retriever",
+        "Labrador_retriever",
+        "Chesapeake_Bay_retriever",
+        "German_short-haired_pointer",
+        "vizsla",
+        "English_setter",
+        "Irish_setter",
+        "Gordon_setter",
+        "Brittany_spaniel",
+        "clumber",
+        "cocker_spaniel",
+        "Sussex_spaniel"
+      ],
+      "hierarchy_depth": 2
+    },
+    "domestic_animal.n.01": {
+      "class_indices": [
+        251,
+        253,
+        254,
+        255,
+        256,
+        257,
+        268
+      ],
+      "class_names": [
+        "dalmatian",
+        "basenji",
+        "pug",
+        "Leonberg",
+        "Newfoundland",
+        "Great_Pyrenees",
+        "Mexican_hairless"
+      ],
+      "hierarchy_depth": 2
+    },
+    "canine.n.02": {
+      "class_indices": [
+        269,
+        270,
+        271,
+        272,
+        273,
+        274,
+        275,
+        277,
+        278,
+        279,
+        280
+      ],
+      "class_names": [
+        "timber_wolf",
+        "white_wolf",
+        "red_wolf",
+        "coyote",
+        "dingo",
+        "dhole",
+        "African_hunting_dog",
+        "red_fox",
+        "kit_fox",
+        "Arctic_fox",
+        "grey_fox"
+      ],
+      "hierarchy_depth": 2
+    },
+    "carnivore.n.01": {
+      "class_indices": [
+        276,
+        294,
+        295,
+        296,
+        297,
+        298,
+        299,
+        356,
+        357,
+        358,
+        359,
+        360,
+        361,
+        362,
+        387,
+        388
+      ],
+      "class_names": [
+        "hyena",
+        "brown_bear",
+        "American_black_bear",
+        "ice_bear",
+        "sloth_bear",
+        "mongoose",
+        "meerkat",
+        "weasel",
+        "mink",
+        "polecat",
+        "black-footed_ferret",
+        "otter",
+        "skunk",
+        "badger",
+        "lesser_panda",
+        "giant_panda"
+      ],
+      "hierarchy_depth": 2
+    },
+    "cat.n.01": {
+      "class_indices": [
+        281,
+        282,
+        283,
+        284,
+        285,
+        286,
+        287
+      ],
+      "class_names": [
+        "tabby",
+        "tiger_cat",
+        "Persian_cat",
+        "Siamese_cat",
+        "Egyptian_cat",
+        "cougar",
+        "lynx"
+      ],
+      "hierarchy_depth": 2
+    },
+    "feline.n.01": {
+      "class_indices": [
+        288,
+        289,
+        290,
+        291,
+        292,
+        293
+      ],
+      "class_names": [
+        "leopard",
+        "snow_leopard",
+        "jaguar",
+        "lion",
+        "tiger",
+        "cheetah"
+      ],
+      "hierarchy_depth": 2
+    },
+    "insect.n.01": {
+      "class_indices": [
+        300,
+        301,
+        302,
+        303,
+        304,
+        307,
+        308,
+        309,
+        310,
+        311,
+        312,
+        313,
+        314,
+        315,
+        316,
+        317,
+        318,
+        319,
+        320
+      ],
+      "class_names": [
+        "tiger_beetle",
+        "ladybug",
+        "ground_beetle",
+        "long-horned_beetle",
+        "leaf_beetle",
+        "weevil",
+        "fly",
+        "bee",
+        "ant",
+        "grasshopper",
+        "cricket",
+        "walking_stick",
+        "cockroach",
+        "mantis",
+        "cicada",
+        "leafhopper",
+        "lacewing",
+        "dragonfly",
+        "damselfly"
+      ],
+      "hierarchy_depth": 2
+    },
+    "placental.n.01": {
+      "class_indices": [
+        333,
+        334,
+        336,
+        337,
+        363
+      ],
+      "class_names": [
+        "hamster",
+        "porcupine",
+        "marmot",
+        "beaver",
+        "armadillo"
+      ],
+      "hierarchy_depth": 2
+    },
+    "bovid.n.01": {
+      "class_indices": [
+        346,
+        348,
+        351,
+        352,
+        353
+      ],
+      "class_names": [
+        "water_buffalo",
+        "ram",
+        "hartebeest",
+        "impala",
+        "gazelle"
+      ],
+      "hierarchy_depth": 2
+    },
+    "anthropoid_ape.n.01": {
+      "class_indices": [
+        365,
+        366,
+        367,
+        368,
+        369
+      ],
+      "class_names": [
+        "orangutan",
+        "gorilla",
+        "chimpanzee",
+        "gibbon",
+        "siamang"
+      ],
+      "hierarchy_depth": 2
+    },
+    "monkey.n.01": {
+      "class_indices": [
+        370,
+        371,
+        372,
+        373,
+        374,
+        375,
+        376,
+        377,
+        378,
+        379,
+        380,
+        381,
+        382
+      ],
+      "class_names": [
+        "guenon",
+        "patas",
+        "baboon",
+        "macaque",
+        "langur",
+        "colobus",
+        "proboscis_monkey",
+        "marmoset",
+        "capuchin",
+        "howler_monkey",
+        "titi",
+        "spider_monkey",
+        "squirrel_monkey"
+      ],
+      "hierarchy_depth": 2
+    },
+    "machine.n.01": {
+      "class_indices": [
+        398,
+        595,
+        742,
+        786,
+        800,
+        856,
+        886,
+        916
+      ],
+      "class_names": [
+        "abacus",
+        "harvester",
+        "printer",
+        "sewing_machine",
+        "slot",
+        "thresher",
+        "vending_machine",
+        "web_site"
+      ],
+      "hierarchy_depth": 2
+    },
+    "garment.n.01": {
+      "class_indices": [
+        399,
+        445,
+        474,
+        552,
+        601,
+        610,
+        614,
+        639,
+        655,
+        689,
+        775,
+        824,
+        842
+      ],
+      "class_names": [
+        "abaya",
+        "bikini",
+        "cardigan",
+        "feather_boa",
+        "hoopskirt",
+        "jersey",
+        "kimono",
+        "maillot",
+        "miniskirt",
+        "overskirt",
+        "sarong",
+        "stole",
+        "swimming_trunks"
+      ],
+      "hierarchy_depth": 2
+    },
+    "musical_instrument.n.01": {
+      "class_indices": [
+        401,
+        420,
+        494,
+        541,
+        577,
+        641,
+        642,
+        684,
+        687,
+        822
+      ],
+      "class_names": [
+        "accordion",
+        "banjo",
+        "chime",
+        "drum",
+        "gong",
+        "maraca",
+        "marimba",
+        "ocarina",
+        "organ",
+        "steel_drum"
+      ],
+      "hierarchy_depth": 2
+    },
+    "stringed_instrument.n.01": {
+      "class_indices": [
+        402,
+        486,
+        546,
+        579,
+        594,
+        881,
+        889
+      ],
+      "class_names": [
+        "acoustic_guitar",
+        "cello",
+        "electric_guitar",
+        "grand_piano",
+        "harp",
+        "upright",
+        "violin"
+      ],
+      "hierarchy_depth": 2
+    },
+    "artifact.n.01": {
+      "class_indices": [
+        406,
+        501,
+        506,
+        562,
+        643,
+        843,
+        850,
+        885,
+        911
+      ],
+      "class_names": [
+        "altar",
+        "cloak",
+        "coil",
+        "fountain",
+        "mask",
+        "swing",
+        "teddy",
+        "velvet",
+        "wool"
+      ],
+      "hierarchy_depth": 2
+    },
+    "timepiece.n.01": {
+      "class_indices": [
+        409,
+        530,
+        531,
+        604,
+        704,
+        826,
+        892
+      ],
+      "class_names": [
+        "analog_clock",
+        "digital_clock",
+        "digital_watch",
+        "hourglass",
+        "parking_meter",
+        "stopwatch",
+        "wall_clock"
+      ],
+      "hierarchy_depth": 2
+    },
+    "clothing.n.01": {
+      "class_indices": [
+        411,
+        459,
+        529,
+        615,
+        652,
+        697,
+        834
+      ],
+      "class_names": [
+        "apron",
+        "brassiere",
+        "diaper",
+        "knee_pad",
+        "military_uniform",
+        "pajama",
+        "suit"
+      ],
+      "hierarchy_depth": 2
+    },
+    "sports_equipment.n.01": {
+      "class_indices": [
+        416,
+        422,
+        429,
+        430,
+        522,
+        543,
+        575,
+        602,
+        702
+      ],
+      "class_names": [
+        "balance_beam",
+        "barbell",
+        "baseball",
+        "basketball",
+        "croquet_ball",
+        "dumbbell",
+        "golfcart",
+        "horizontal_bar",
+        "parallel_bars"
+      ],
+      "hierarchy_depth": 2
+    },
+    "mercantile_establishment.n.01": {
+      "class_indices": [
+        424,
+        454,
+        467,
+        509,
+        582,
+        788,
+        860,
+        865
+      ],
+      "class_names": [
+        "barbershop",
+        "bookshop",
+        "butcher_shop",
+        "confectionery",
+        "grocery_store",
+        "shoe_shop",
+        "tobacco_shop",
+        "toyshop"
+      ],
+      "hierarchy_depth": 2
+    },
+    "instrument.n.01": {
+      "class_indices": [
+        426,
+        447,
+        456,
+        583,
+        744,
+        745,
+        778,
+        823,
+        845
+      ],
+      "class_names": [
+        "barometer",
+        "binoculars",
+        "bow",
+        "guillotine",
+        "projectile",
+        "projector",
+        "scale",
+        "stethoscope",
+        "syringe"
+      ],
+      "hierarchy_depth": 2
+    },
+    "furniture.n.01": {
+      "class_indices": [
+        431,
+        493,
+        495,
+        516,
+        520,
+        526,
+        532,
+        548,
+        553,
+        648,
+        736,
+        846,
+        861
+      ],
+      "class_names": [
+        "bassinet",
+        "chiffonier",
+        "china_cabinet",
+        "cradle",
+        "crib",
+        "desk",
+        "dining_table",
+        "entertainment_center",
+        "file",
+        "medicine_chest",
+        "pool_table",
+        "table_lamp",
+        "toilet_seat"
+      ],
+      "hierarchy_depth": 2
+    },
+    "headdress.n.01": {
+      "class_indices": [
+        433,
+        439,
+        452,
+        515,
+        518,
+        560,
+        667,
+        793,
+        808
+      ],
+      "class_names": [
+        "bathing_cap",
+        "bearskin",
+        "bonnet",
+        "cowboy_hat",
+        "crash_helmet",
+        "football_helmet",
+        "mortarboard",
+        "shower_cap",
+        "sombrero"
+      ],
+      "hierarchy_depth": 2
+    },
+    "protective_covering.n.01": {
+      "class_indices": [
+        442,
+        448,
+        538,
+        556,
+        570,
+        597,
+        619,
+        622,
+        669,
+        777,
+        787,
+        853,
+        855,
+        858,
+        884,
+        904
+      ],
+      "class_names": [
+        "bell_cote",
+        "birdhouse",
+        "dome",
+        "fire_screen",
+        "gasmask",
+        "holster",
+        "lampshade",
+        "lens_cap",
+        "mosquito_net",
+        "scabbard",
+        "shield",
+        "thatch",
+        "thimble",
+        "tile_roof",
+        "vault",
+        "window_screen"
+      ],
+      "hierarchy_depth": 2
+    },
+    "vehicle.n.01": {
+      "class_indices": [
+        450,
+        537,
+        586,
+        657,
+        847,
+        895
+      ],
+      "class_names": [
+        "bobsled",
+        "dogsled",
+        "half_track",
+        "missile",
+        "tank",
+        "warplane"
+      ],
+      "hierarchy_depth": 2
+    },
+    "implement.n.01": {
+      "class_indices": [
+        462,
+        542,
+        644,
+        693,
+        710,
+        730,
+        733,
+        752,
+        767,
+        816,
+        840
+      ],
+      "class_names": [
+        "broom",
+        "drumstick",
+        "matchstick",
+        "paddle",
+        "pencil_sharpener",
+        "plow",
+        "pole",
+        "racket",
+        "rubber_eraser",
+        "spindle",
+        "swab"
+      ],
+      "hierarchy_depth": 2
+    },
+    "cooking_utensil.n.01": {
+      "class_indices": [
+        469,
+        505,
+        521,
+        567,
+        813,
+        849,
+        909
+      ],
+      "class_names": [
+        "caldron",
+        "coffeepot",
+        "Crock_Pot",
+        "frying_pan",
+        "spatula",
+        "teapot",
+        "wok"
+      ],
+      "hierarchy_depth": 2
+    },
+    "instrumentality.n.03": {
+      "class_indices": [
+        481,
+        549,
+        585,
+        626,
+        631,
+        646,
+        711,
+        714,
+        738,
+        761
+      ],
+      "class_names": [
+        "cassette",
+        "envelope",
+        "hair_spray",
+        "lighter",
+        "lotion",
+        "maze",
+        "perfume",
+        "pick",
+        "pot",
+        "remote_control"
+      ],
+      "hierarchy_depth": 2
+    },
+    "equipment.n.01": {
+      "class_indices": [
+        482,
+        485,
+        662,
+        664,
+        688,
+        701,
+        848
+      ],
+      "class_names": [
+        "cassette_player",
+        "CD_player",
+        "modem",
+        "monitor",
+        "oscilloscope",
+        "parachute",
+        "tape_player"
+      ],
+      "hierarchy_depth": 2
+    },
+    "wind_instrument.n.01": {
+      "class_indices": [
+        513,
+        558,
+        566,
+        593,
+        699,
+        875
+      ],
+      "class_names": [
+        "cornet",
+        "flute",
+        "French_horn",
+        "harmonica",
+        "panpipe",
+        "trombone"
+      ],
+      "hierarchy_depth": 2
+    },
+    "home_appliance.n.01": {
+      "class_indices": [
+        534,
+        651,
+        760,
+        859,
+        891,
+        897
+      ],
+      "class_names": [
+        "dishwasher",
+        "microwave",
+        "refrigerator",
+        "toaster",
+        "waffle_iron",
+        "washer"
+      ],
+      "hierarchy_depth": 2
+    },
+    "vessel.n.02": {
+      "class_indices": [
+        554,
+        576,
+        724,
+        780,
+        913
+      ],
+      "class_names": [
+        "fireboat",
+        "gondola",
+        "pirate",
+        "schooner",
+        "wreck"
+      ],
+      "hierarchy_depth": 2
+    },
+    "game_equipment.n.01": {
+      "class_indices": [
+        574,
+        722,
+        747,
+        768,
+        805,
+        852,
+        890
+      ],
+      "class_names": [
+        "golf_ball",
+        "ping-pong_ball",
+        "punching_bag",
+        "rugby_ball",
+        "soccer_ball",
+        "tennis_ball",
+        "volleyball"
+      ],
+      "hierarchy_depth": 2
+    },
+    "tool.n.01": {
+      "class_indices": [
+        587,
+        621,
+        726,
+        731,
+        740,
+        784,
+        792
+      ],
+      "class_names": [
+        "hammer",
+        "lawn_mower",
+        "plane",
+        "plunger",
+        "power_drill",
+        "screwdriver",
+        "shovel"
+      ],
+      "hierarchy_depth": 2
+    },
+    "geological_formation.n.01": {
+      "class_indices": [
+        974,
+        975,
+        976,
+        978,
+        979
+      ],
+      "class_names": [
+        "geyser",
+        "lakeside",
+        "promontory",
+        "seashore",
+        "valley"
+      ],
+      "hierarchy_depth": 2
+    },
+    "organism.n.01": {
+      "class_indices": [
+        991,
+        993,
+        994,
+        995,
+        996,
+        997
+      ],
+      "class_names": [
+        "coral_fungus",
+        "gyromitra",
+        "stinkhorn",
+        "earthstar",
+        "hen-of-the-woods",
+        "bolete"
+      ],
+      "hierarchy_depth": 2
+    }
+  }
+}
