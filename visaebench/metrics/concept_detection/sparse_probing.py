@@ -1,4 +1,4 @@
-"""M3: Sparse Probing Accuracy Curve.
+"""M4: Sparse Probing Accuracy Curve.
 
 Measures whether SAE features align with human-recognisable concepts by
 training *k*-sparse linear probes at increasing sparsity levels.
@@ -24,11 +24,13 @@ from __future__ import annotations
 
 import os
 import tempfile
+import warnings
 from pathlib import Path
 from typing import Sequence, Union
 
 import numpy as np
 import torch
+from sklearn.exceptions import ConvergenceWarning, UndefinedMetricWarning
 from sklearn.feature_selection import f_classif
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
@@ -40,7 +42,7 @@ DEFAULT_K_VALUES = [1, 5, 10, 20, 50, 100]
 
 
 class SparseProbing(Metric):
-    """M3: Sparse probing accuracy curve.
+    """M4: Sparse probing accuracy curve.
 
     Parameters
     ----------
@@ -108,15 +110,20 @@ class SparseProbing(Metric):
             labels = labels[:num_images]
 
         # Step 2: Feature ranking by F-statistic
-        f_scores, _ = f_classif(image_codes, labels)
+        with warnings.catch_warnings():
+            warnings.simplefilter("ignore", ConvergenceWarning)
+            warnings.simplefilter("ignore", UndefinedMetricWarning)
+            f_scores, _ = f_classif(image_codes, labels)
         f_scores = np.nan_to_num(f_scores, nan=-np.inf)
         ranked = np.argsort(f_scores)[::-1]
 
-        # Step 3: Stratified train / test split
+        # Step 3: Stratified train / test split, falling back to random
+        # split if any class has only one member (would otherwise raise).
+        stratify = labels if np.min(np.bincount(labels)) >= 2 else None
         X_train, X_test, y_train, y_test = train_test_split(
             image_codes, labels,
             test_size=self.test_size,
-            stratify=labels,
+            stratify=stratify,
             random_state=seed,
         )
 
@@ -130,7 +137,10 @@ class SparseProbing(Metric):
             clf = LogisticRegression(
                 solver="lbfgs", max_iter=500, C=1.0, random_state=seed,
             )
-            clf.fit(X_train[:, top_k], y_train)
+            with warnings.catch_warnings():
+                warnings.simplefilter("ignore", ConvergenceWarning)
+                warnings.simplefilter("ignore", UndefinedMetricWarning)
+                clf.fit(X_train[:, top_k], y_train)
             k_accuracies[k] = float(clf.score(X_test[:, top_k], y_test))
 
         # Step 5: AUC (trapezoidal, normalised)

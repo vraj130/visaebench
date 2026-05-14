@@ -113,3 +113,8 @@ class MetricResult:
             raise ValueError(
                 f"dimension must be one of {DIMENSIONS}, got {self.dimension!r}"
             )
+
+    @property
+    def name(self) -> str:
+        """Alias for :attr:`metric_name`."""
+        return self.metric_name

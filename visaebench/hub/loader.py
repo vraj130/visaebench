@@ -18,27 +18,34 @@ def load_sae(
     filename: str = "sae.pt",
     config_filename: str = "config.json",
     revision: str | None = None,
+    subfolder: str | None = None,
 ) -> GenericSAE:
     """Load an SAE from HuggingFace Hub or a local directory.
 
     Args:
         source: Either a HuggingFace repo ID (e.g.
-            ``"visaebench/clip_vitb16_batchtopk_16x_k192"``) or a local
-            directory path containing ``sae.pt`` and ``config.json``.
+            ``"visaebench/clip-vitb16-saes"``) or a local directory path
+            containing ``sae.pt`` and ``config.json``.
         device: Torch device to place the model on.
         filename: Name of the weights file (default ``"sae.pt"``).
         config_filename: Name of the config file (default ``"config.json"``).
         revision: Git revision for HuggingFace downloads (branch, tag, or
             commit hash).
+        subfolder: Optional subfolder within the HF repo (e.g.
+            ``"batchtopk_16x_k128"``). When *source* is a local directory,
+            ``subfolder`` is joined to it.
 
     Returns:
         A :class:`GenericSAE` instance in eval mode on *device*.
 
     Examples
     --------
-    From HuggingFace::
+    From HuggingFace, one repo per backbone with per-config subfolders::
 
-        sae = load_sae("visaebench/clip_vitb16_batchtopk_16x_k192")
+        sae = load_sae(
+            "visaebench/clip-vitb16-saes",
+            subfolder="batchtopk_16x_k128",
+        )
 
     From a local checkpoint::
 
@@ -47,12 +54,14 @@ def load_sae(
     local_path = Path(source)
 
     if local_path.is_dir():
-        weights_path = local_path / filename
-        config_path = local_path / config_filename
+        base = local_path / subfolder if subfolder else local_path
+        weights_path = base / filename
+        config_path = base / config_filename
     else:
         # Download from HuggingFace Hub
         weights_path, config_path = _download_from_hub(
-            source, filename, config_filename, revision=revision,
+            source, filename, config_filename,
+            revision=revision, subfolder=subfolder,
         )
 
     # ── Load config ──────────────────────────────────────────────────
@@ -99,15 +108,16 @@ def _download_from_hub(
     filename: str,
     config_filename: str,
     revision: str | None,
+    subfolder: str | None = None,
 ) -> tuple[Path, Path]:
     """Download weights and config from HuggingFace Hub."""
     from huggingface_hub import hf_hub_download
 
     weights_path = Path(hf_hub_download(
-        repo_id, filename, revision=revision,
+        repo_id, filename, revision=revision, subfolder=subfolder,
     ))
     config_path = Path(hf_hub_download(
-        repo_id, config_filename, revision=revision,
+        repo_id, config_filename, revision=revision, subfolder=subfolder,
     ))
     return weights_path, config_path
 

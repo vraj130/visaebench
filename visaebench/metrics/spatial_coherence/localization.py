@@ -1,4 +1,4 @@
-"""M6: Feature Localization Score (Moran's I spatial autocorrelation).
+"""M1: Feature Localization Score (Moran's I spatial autocorrelation).
 
 Measures whether individual SAE features activate on **spatially coherent**
 regions of the Vision Transformer patch grid.
@@ -64,7 +64,7 @@ from visaebench.metrics.base import Metric
 
 
 class FeatureLocalization(Metric):
-    """M6: Feature localization via Moran's I spatial autocorrelation.
+    """M1: Feature localization via Moran's I spatial autocorrelation.
 
     Parameters
     ----------

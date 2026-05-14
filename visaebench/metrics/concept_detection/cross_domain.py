@@ -1,4 +1,4 @@
-"""M5: Cross-Domain Generalization.
+"""M6: Cross-Domain Generalization.
 
 Tests whether SAE features learned on ImageNet transfer to out-of-distribution
 (OOD) datasets.  Good features should capture general visual concepts that
@@ -25,11 +25,13 @@ perfect cross-domain generalisation would score 1.0.
 
 from __future__ import annotations
 
+import warnings
 from pathlib import Path
 from typing import Any, Sequence, Union
 
 import numpy as np
 import torch
+from sklearn.exceptions import ConvergenceWarning, UndefinedMetricWarning
 from sklearn.feature_selection import f_classif
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
@@ -46,7 +48,7 @@ OODEntry = dict[str, Any]
 
 
 class CrossDomainGeneralization(Metric):
-    """M5: Cross-domain generalization.
+    """M6: Cross-domain generalization.
 
     Parameters
     ----------
@@ -59,6 +61,14 @@ class CrossDomainGeneralization(Metric):
     backbone_batch_size:
         Images per backbone forward pass when extracting OOD activations
         from raw images.
+
+    Notes
+    -----
+    ``inaturalist`` is supported but no longer part of the default
+    ``DEFAULT_OOD_DATASETS`` (the public ``huggan/inat_mini`` HF repo
+    currently 404s). To use it, pass
+    ``ood_datasets={"inaturalist": <local_path_or_hf_repo>}`` to
+    :func:`visaebench.evaluate`.
     """
 
     name = "cross_domain"
@@ -226,10 +236,14 @@ class CrossDomainGeneralization(Metric):
             ood_codes, labels, k=self.k_probe, seed=seed,
         )
 
-        # Composite: mean of four normalised sub-scores (all in [0,1], higher=better)
+        # Clamp ood_fvu to [0, 1] for the composite: values outside this
+        # range come from numerical edge cases (var_x ≈ 0 → fvu=inf) and
+        # would otherwise propagate -inf through the mean.
+        recon_quality = max(0.0, min(1.0, 1.0 - ood_fvu))
+
         sub_scores = {
             "ood_fvu": ood_fvu,
-            "reconstruction_quality": 1.0 - ood_fvu,
+            "reconstruction_quality": recon_quality,
             "dead_feature_fraction": dead_frac,
             "domain_coverage": 1.0 - dead_frac,
             "jaccard_overlap": jaccard,
@@ -241,7 +255,7 @@ class CrossDomainGeneralization(Metric):
         }
 
         sub_scores["composite"] = float(np.mean([
-            1.0 - ood_fvu,          # (a) reconstruction quality
+            recon_quality,          # (a) reconstruction quality (clamped)
             1.0 - dead_frac,        # (b) domain coverage
             jaccard,                # (c) feature overlap
             probe_acc,              # (d) sparse probing
@@ -262,12 +276,17 @@ class CrossDomainGeneralization(Metric):
         std: float | None,
         device: str,
     ) -> float:
-        """Compute FVU on OOD activations (same algorithm as M1)."""
+        """Compute FVU on OOD activations.
+
+        Uses fp64 accumulators to avoid the catastrophic cancellation that
+        ``Var(x) = E[x²] − E[x]²`` suffers when ``Var(x)`` is small relative
+        to the squared mean (which is common for normalised OOD activations).
+        """
         n_tok = 0
-        sum_x = 0.0
-        sum_x2 = 0.0
-        sum_res = 0.0
-        sum_res2 = 0.0
+        sum_x = torch.zeros(1, dtype=torch.float64)
+        sum_x2 = torch.zeros(1, dtype=torch.float64)
+        sum_res = torch.zeros(1, dtype=torch.float64)
+        sum_res2 = torch.zeros(1, dtype=torch.float64)
 
         with torch.no_grad():
             for batch in self._iter_token_batches(activations, mean=mean, std=std):
@@ -278,19 +297,21 @@ class CrossDomainGeneralization(Metric):
 
                 n = batch.shape[0]
                 n_tok += n
-                sum_x += float(batch.sum())
-                sum_x2 += float(batch.pow(2).sum())
-                sum_res += float(res.sum())
-                sum_res2 += float(res.pow(2).sum())
+                sum_x += batch.double().sum().cpu()
+                sum_x2 += batch.double().pow(2).sum().cpu()
+                sum_res += res.double().sum().cpu()
+                sum_res2 += res.double().pow(2).sum().cpu()
 
                 del batch, codes, x_hat, res
 
         if n_tok == 0:
             return 1.0
 
-        var_x = sum_x2 / n_tok - (sum_x / n_tok) ** 2
-        var_res = sum_res2 / n_tok - (sum_res / n_tok) ** 2
-        return float(var_res / var_x) if var_x > 0 else float("inf")
+        var_x = (sum_x2 / n_tok - (sum_x / n_tok) ** 2).item()
+        var_res = (sum_res2 / n_tok - (sum_res / n_tok) ** 2).item()
+        if var_x <= 0:
+            return 1.0  # degenerate input — treat as worst-case reconstruction
+        return float(max(0.0, var_res) / var_x)
 
     def _sparse_probe(
         self,
@@ -301,22 +322,29 @@ class CrossDomainGeneralization(Metric):
         seed: int,
     ) -> float:
         """Train a k-sparse logistic regression probe and return accuracy."""
+        stratify = labels if np.min(np.bincount(labels)) >= 2 else None
         X_train, X_test, y_train, y_test = train_test_split(
             codes, labels,
             test_size=self.test_size,
-            stratify=labels,
+            stratify=stratify,
             random_state=seed,
         )
 
         # Feature ranking
-        f_scores, _ = f_classif(X_train, y_train)
+        with warnings.catch_warnings():
+            warnings.simplefilter("ignore", ConvergenceWarning)
+            warnings.simplefilter("ignore", UndefinedMetricWarning)
+            f_scores, _ = f_classif(X_train, y_train)
         f_scores = np.nan_to_num(f_scores, nan=-np.inf)
         top_k = np.argsort(f_scores)[::-1][:k]
 
         clf = LogisticRegression(
             solver="lbfgs", max_iter=500, C=1.0, random_state=seed,
         )
-        clf.fit(X_train[:, top_k], y_train)
+        with warnings.catch_warnings():
+            warnings.simplefilter("ignore", ConvergenceWarning)
+            warnings.simplefilter("ignore", UndefinedMetricWarning)
+            clf.fit(X_train[:, top_k], y_train)
         return float(clf.score(X_test[:, top_k], y_test))
 
     # ------------------------------------------------------------------

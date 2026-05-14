@@ -1,4 +1,4 @@
-"""M2: Downstream Classification Preservation.
+"""M3: Downstream Classification Preservation.
 
 Measures how much task-relevant information the SAE preserves by comparing
 a linear probe's accuracy on original activations versus SAE-reconstructed
@@ -9,18 +9,22 @@ activations.
 1. Pool patch-level activations to image-level representations (mean-pool).
 2. Train a logistic regression probe on the original pooled features.
 3. Evaluate the *same* probe on SAE-reconstructed pooled features.
-4. Report the accuracy gap: ``original_acc − reconstructed_acc``.
+4. Report the preservation ratio: ``reconstructed_acc / original_acc``.
 
-An accuracy gap of 0 means the SAE preserves all classification-relevant
-information.  Larger gaps indicate information loss.
+A preservation ratio of 1.0 means the SAE preserves all classification
+relevant information. Values below 1.0 indicate information loss; values
+above 1.0 (rare, small-N noise) indicate the reconstructed features happened
+to score higher than the originals on this split.
 
-**Interpretation:** lower ``accuracy_gap`` is better.
+**Interpretation:** the value is naturally bounded in [0, 2], with 1.0 being
+perfect preservation.
 """
 
 from __future__ import annotations
 
 import os
 import tempfile
+import warnings
 from pathlib import Path
 from typing import Sequence, Union
 
@@ -32,7 +36,7 @@ from visaebench.metrics.base import Metric
 
 
 class DownstreamPreservation(Metric):
-    """M2: Downstream classification preservation via linear probing.
+    """M3: Downstream classification preservation via linear probing.
 
     Parameters
     ----------
@@ -48,7 +52,7 @@ class DownstreamPreservation(Metric):
 
     name = "downstream_preservation"
     dimension = "reconstruction"
-    higher_is_better = False
+    higher_is_better = True
 
     def __init__(
         self,
@@ -72,26 +76,32 @@ class DownstreamPreservation(Metric):
         mean: torch.Tensor | None = None,
         std: float | None = None,
         seed: int = 42,
+        min_samples_per_class: int = 5,
         **kwargs,
     ) -> MetricResult:
         """Compute downstream preservation.
 
         Args:
             sae: Trained SAE with ``encode`` / ``decode`` methods.
-            activations: A tensor of shape ``[N, P, D]`` (images × patches ×
+            activations: A tensor of shape ``[N, P, D]`` (images x patches x
                 hidden_dim) or a list of shard file paths with that shape.
             device: Torch device string.
-            labels: Integer class labels, one per image.  Must be aligned
+            labels: Integer class labels, one per image. Must be aligned
                 with the image ordering in *activations*.
             mean: Per-dimension mean for normalisation, shape ``[D]``.
             std: Scalar standard deviation for normalisation.
             seed: Random seed for the train/test split and solver.
+            min_samples_per_class: Minimum samples per present class
+                required for stable probe estimates. If any present class
+                has fewer than this many samples a :class:`UserWarning` is
+                emitted (but the metric still runs). Default 5.
 
         Returns:
-            :class:`MetricResult` where ``value`` is the accuracy gap
-            (``original_acc − reconstructed_acc``).  Metadata contains
-            ``accuracy_original``, ``accuracy_reconstructed``,
-            ``preservation_ratio``, and ``num_images``.
+            :class:`MetricResult` where ``value`` is the preservation ratio
+            (``reconstructed_acc / original_acc``), clamped to [0.0, 2.0].
+            Metadata contains ``accuracy_original``,
+            ``accuracy_reconstructed``, ``accuracy_gap``,
+            ``preservation_ratio_raw``, and ``num_images``.
         """
         from sklearn.linear_model import LogisticRegression
         from sklearn.model_selection import train_test_split
@@ -204,14 +214,27 @@ class DownstreamPreservation(Metric):
         if len(labels) > total_images:
             labels = labels[:total_images]
 
-        # ---- stratified split ------------------------------------------
+        # ---- stratified split (fall back to random when any class has
+        # fewer than 2 members, which sklearn rejects) -------------------
+        stratify = labels if np.min(np.bincount(labels)) >= 2 else None
         idx_train, idx_test, y_train, y_test = train_test_split(
             np.arange(total_images),
             labels,
             test_size=self.test_size,
-            stratify=labels,
+            stratify=stratify,
             random_state=seed,
         )
+
+        # ---- safety: warn on under-populated classes in eval split -----
+        eval_counts = np.bincount(y_test)
+        present_counts = eval_counts[eval_counts > 0]
+        n_classes = int(present_counts.size)
+        n_samples = int(y_test.size)
+        if present_counts.size > 0 and int(present_counts.min()) < min_samples_per_class:
+            warnings.warn(
+                f"M3 downstream preservation requires at least {min_samples_per_class} samples per class for stable estimates; got {n_samples} samples across {n_classes} classes.",
+                UserWarning,
+            )
 
         # ---- fit probe on original, evaluate on both -------------------
         clf = LogisticRegression(
@@ -228,14 +251,30 @@ class DownstreamPreservation(Metric):
         os.unlink(tmp_recon.name)
 
         gap = acc_orig - acc_recon
-        preservation = acc_recon / acc_orig if acc_orig > 0 else 0.0
+        preservation_raw = acc_recon / acc_orig if acc_orig > 0 else 0.0
+
+        # ---- clamp to [0, 2]: anything outside is numerical pathology --
+        preservation = preservation_raw
+        if preservation_raw < 0.0:
+            warnings.warn(
+                f"M3 preservation ratio {preservation_raw:.6f} fell below lower bound 0.0; clamping to 0.0.",
+                UserWarning,
+            )
+            preservation = 0.0
+        elif preservation_raw > 2.0:
+            warnings.warn(
+                f"M3 preservation ratio {preservation_raw:.6f} exceeded upper bound 2.0; clamping to 2.0.",
+                UserWarning,
+            )
+            preservation = 2.0
 
         return self._make_result(
-            value=gap,
+            value=preservation,
             metadata={
                 "accuracy_original": acc_orig,
                 "accuracy_reconstructed": acc_recon,
-                "preservation_ratio": preservation,
+                "accuracy_gap": gap,
+                "preservation_ratio_raw": preservation_raw,
                 "num_images": total_images,
             },
         )

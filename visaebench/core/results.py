@@ -17,6 +17,14 @@ class EvalResults:
     def __init__(self, results: list[MetricResult] | None = None) -> None:
         self._results: list[MetricResult] = list(results) if results else []
 
+    # -- container protocol ----------------------------------------------
+
+    def __len__(self) -> int:
+        return len(self._results)
+
+    def __iter__(self):
+        return iter(self._results)
+
     # -- mutation --------------------------------------------------------
 
     def add(self, result: MetricResult) -> None:

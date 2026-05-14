@@ -1,4 +1,4 @@
-"""M4: Monosemanticity Score.
+"""M5: Monosemanticity Score.
 
 Measures whether individual SAE features respond to semantically coherent
 stimuli, following Pach et al. (2025).
@@ -45,7 +45,7 @@ from visaebench.metrics.base import Metric
 
 
 class MonosemanticityScore(Metric):
-    """M4: Monosemanticity Score via cross-model evaluation.
+    """M5: Monosemanticity Score via cross-model evaluation.
 
     Parameters
     ----------

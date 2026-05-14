@@ -1,4 +1,4 @@
-"""M1: Fraction of Variance Unexplained (FVU).
+"""M2: Fraction of Variance Unexplained (FVU).
 
 Measures reconstruction quality of a sparse autoencoder by computing the
 ratio of residual variance to input variance over held-out activations:

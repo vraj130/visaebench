@@ -1,4 +1,4 @@
-"""Concept detection metrics (M3, M4, M5)."""
+"""Concept detection metrics (M4, M5, M6)."""
 
 from visaebench.metrics.concept_detection.cross_domain import (
     CrossDomainGeneralization,
