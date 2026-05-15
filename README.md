@@ -9,7 +9,7 @@ VISAEBench is a benchmark for evaluating Sparse Autoencoders (SAEs) trained on V
 pip install visaebench
 
 # From source (development)
-git clone https://github.com/visaebench/visaebench && cd visaebench
+git clone https://github.com/vraj130/visaebench.git && cd visaebench
 pip install -e .
 ```
 
