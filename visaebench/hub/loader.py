@@ -7,6 +7,7 @@ from pathlib import Path
 from typing import Union
 
 import torch
+from safetensors.torch import load_file as safetensors_load_file
 
 from visaebench.hub.sae_wrapper import GenericSAE
 
@@ -57,6 +58,18 @@ def load_sae(
         base = local_path / subfolder if subfolder else local_path
         weights_path = base / filename
         config_path = base / config_filename
+        if not weights_path.exists() and filename == "sae.pt":
+            for alt in ("model.safetensors", "model.pt"):
+                candidate = base / alt
+                if candidate.exists():
+                    weights_path = candidate
+                    break
+        if not config_path.exists() and config_filename == "config.json":
+            for alt in ("config.yaml", "config.yml"):
+                candidate = base / alt
+                if candidate.exists():
+                    config_path = candidate
+                    break
     else:
         # Download from HuggingFace Hub
         weights_path, config_path = _download_from_hub(
@@ -68,7 +81,7 @@ def load_sae(
     config = _load_config(config_path)
 
     # ── Load weights ─────────────────────────────────────────────────
-    state_dict = torch.load(weights_path, map_location="cpu", weights_only=True)
+    state_dict = _load_state_dict(weights_path)
 
     # ── Infer dimensions if not in config ────────────────────────────
     config = _infer_dims(config, state_dict)
@@ -112,14 +125,42 @@ def _download_from_hub(
 ) -> tuple[Path, Path]:
     """Download weights and config from HuggingFace Hub."""
     from huggingface_hub import hf_hub_download
+    from huggingface_hub.errors import RemoteEntryNotFoundError
 
-    weights_path = Path(hf_hub_download(
-        repo_id, filename, revision=revision, subfolder=subfolder,
-    ))
-    config_path = Path(hf_hub_download(
-        repo_id, config_filename, revision=revision, subfolder=subfolder,
-    ))
+    try:
+        weights_path = Path(hf_hub_download(
+            repo_id, filename, revision=revision, subfolder=subfolder,
+        ))
+    except RemoteEntryNotFoundError:
+        if filename != "sae.pt":
+            raise
+        weights_path = Path(hf_hub_download(
+            repo_id, "model.safetensors", revision=revision, subfolder=subfolder,
+        ))
+
+    try:
+        config_path = Path(hf_hub_download(
+            repo_id, config_filename, revision=revision, subfolder=subfolder,
+        ))
+    except RemoteEntryNotFoundError:
+        if config_filename != "config.json":
+            raise
+        try:
+            config_path = Path(hf_hub_download(
+                repo_id, "config.yaml", revision=revision, subfolder=subfolder,
+            ))
+        except RemoteEntryNotFoundError:
+            config_path = Path(hf_hub_download(
+                repo_id, "config.yml", revision=revision, subfolder=subfolder,
+            ))
     return weights_path, config_path
+
+
+def _load_state_dict(path: Path) -> dict[str, torch.Tensor]:
+    """Load model weights from torch or safetensors files."""
+    if path.suffix == ".safetensors":
+        return safetensors_load_file(str(path), device="cpu")
+    return torch.load(path, map_location="cpu", weights_only=True)
 
 
 def _load_config(path: Path) -> dict:
