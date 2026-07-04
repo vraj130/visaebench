@@ -34,3 +34,7 @@ Thumbs.db
 
 # Environment
 .env
+
+.claude/
+/CHANGELOG.md
+

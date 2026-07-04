@@ -1,5 +1,19 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
-title: "VISAEBench: A Benchmark for Evaluating Sparse Autoencoders on Vision Transformers"
+title: "ViSAEBench: Cross-Backbone Evaluation of Vision Sparse Autoencoders Reveals Backbone-Dominated Variance and Metric Dissociations"
 type: software
 license: Apache-2.0
+year: 2026
+authors:
+  # TODO(maintainer): replace with the full author list before release.
+  - given-names: "PLACEHOLDER"
+    family-names: "PLACEHOLDER"
+preferred-citation:
+  type: conference-paper
+  title: "ViSAEBench: Cross-Backbone Evaluation of Vision Sparse Autoencoders Reveals Backbone-Dominated Variance and Metric Dissociations"
+  year: 2026
+  collection-title: "ICML 2026 Mechanistic Interpretability Workshop"
+  authors:
+    # TODO(maintainer): replace with the full author list before release.
+    - given-names: "PLACEHOLDER"
+      family-names: "PLACEHOLDER"
