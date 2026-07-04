@@ -1,0 +1,40 @@
+# One-time manual setup required on pypi.org before the first release:
+#
+# 1. Create the project named "visaebench" on PyPI (or reserve it by doing the
+#    first upload). For a brand new project, configure a "pending" Trusted
+#    Publisher under your account before the project exists.
+# 2. In the project settings on pypi.org, go to "Publishing" and add a new
+#    Trusted Publisher (GitHub Actions) with these exact values:
+#      - Repository owner and name: vraj130/visaebench
+#      - Workflow filename: publish.yml
+#      - Environment name: pypi
+# 3. No API tokens or secrets are needed. Publishing uses OpenID Connect
+#    (Trusted Publishing), so this workflow requests an id-token and PyPI
+#    verifies it against the Trusted Publisher configured above.
+#
+# After that setup, publishing a GitHub release triggers this workflow, which
+# builds the distributions and uploads them to PyPI automatically.
+
+name: publish
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment: pypi
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install build tooling
+        run: pip install build
+      - name: Build sdist and wheel
+        run: python -m build
+      - name: Publish to PyPI via Trusted Publishing
+        uses: pypa/gh-action-pypi-publish@release/v1

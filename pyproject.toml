@@ -23,12 +23,31 @@ dependencies = [
     "pyyaml",
 ]
 
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-cov",
+    "build",
+    "twine",
+]
+
 [project.urls]
-Homepage = "https://github.com/visaebench/visaebench"
-Repository = "https://github.com/visaebench/visaebench"
+Homepage = "https://github.com/vraj130/visaebench"
+Repository = "https://github.com/vraj130/visaebench"
 
 [tool.setuptools.dynamic]
 version = {attr = "visaebench.version.__version__"}
 
 [tool.setuptools.packages.find]
 include = ["visaebench*"]
+
+[tool.setuptools.package-data]
+visaebench = ["py.typed", "data/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-m 'not gpu and not network'"
+markers = [
+    "gpu: marks tests that require a GPU",
+    "network: marks tests that require network access",
+]

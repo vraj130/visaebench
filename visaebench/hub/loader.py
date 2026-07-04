@@ -28,7 +28,11 @@ def load_sae(
             containing ``sae.pt`` and ``config.json``.
         device: Torch device to place the model on.
         filename: Name of the weights file (default ``"sae.pt"``).
-        config_filename: Name of the config file (default ``"config.json"``).
+        config_filename: Name of the config file. Both JSON and YAML are
+            accepted; the loader branches on the file suffix
+            (``.json`` vs ``.yaml``/``.yml``). Default is ``"config.json"``.
+            Local checkpoints that ship ``config.yaml`` should pass
+            ``config_filename="config.yaml"``.
         revision: Git revision for HuggingFace downloads (branch, tag, or
             commit hash).
         subfolder: Optional subfolder within the HF repo (e.g.

@@ -1,5 +1,8 @@
 # VISAEBench
 
+[![Tests](https://github.com/vraj130/visaebench/actions/workflows/test.yml/badge.svg)](https://github.com/vraj130/visaebench/actions/workflows/test.yml)
+[![PyPI](https://img.shields.io/pypi/v/visaebench.svg)](https://pypi.org/project/visaebench/)
+
 VISAEBench is a benchmark for evaluating Sparse Autoencoders (SAEs) trained on Vision Transformer (ViT) patch activations. It scores an SAE across four interpretability dimensions (reconstruction, concept detection, spatial coherence, disentanglement) using 7 metrics (M1 through M7). It supports cross-backbone evaluation across CLIP, DINOv2, SigLIP, MAE, and DeiT (all ViT-B/16 or ViT-B/14).
 
 ## Installation
@@ -9,7 +12,7 @@ VISAEBench is a benchmark for evaluating Sparse Autoencoders (SAEs) trained on V
 pip install visaebench
 
 # From source (development)
-git clone https://github.com/visaebench/visaebench && cd visaebench
+git clone https://github.com/vraj130/visaebench && cd visaebench
 pip install -e .
 ```
 
@@ -41,6 +44,14 @@ One HuggingFace repo per backbone; each holds 12 configs as subfolders (`batchto
 | MAE ViT-B/16 | `visaebench/mae-vitb16-saes` |
 | DeiT ViT-B/16 | `visaebench/deit-vitb16-saes` |
 
+The detailed 12-config table (all `batchtopk_{8x,16x,32x}_k{64,128,192,256}` subfolders) lives in [`docs/quickstart.md`](docs/quickstart.md).
+
+## Documentation
+
+- [`docs/quickstart.md`](docs/quickstart.md): end-to-end quickstart and the full checkpoint config table.
+- [`docs/custom_models.md`](docs/custom_models.md): evaluating your own SAE and custom backbones.
+- [`docs/metrics.md`](docs/metrics.md): detailed description of the 7 metrics (M1 through M7).
+
 ## Metrics
 
 | # | Registry key | Dimension | Description |
@@ -57,11 +68,10 @@ One HuggingFace repo per backbone; each holds 12 configs as subfolders (`batchto
 
 ```bibtex
 @inproceedings{visaebench2026,
-  title  = {VISAEBench: A Benchmark for Vision Sparse Autoencoders},
-  author = {},
-  booktitle = {},
-  year   = {2026},
-  note   = {TODO: }
+  title     = {ViSAEBench: Cross-Backbone Evaluation of Vision Sparse Autoencoders Reveals Backbone-Dominated Variance and Metric Dissociations},
+  author    = {TODO: maintainer to fill in author list},
+  booktitle = {ICML 2026 Mechanistic Interpretability Workshop},
+  year      = {2026}
 }
 ```
 
