@@ -69,12 +69,12 @@ The detailed 12-config table (all `batchtopk_{8x,16x,32x}_k{64,128,192,256}` sub
 ```bibtex
 @inproceedings{visaebench2026,
   title     = {ViSAEBench: Cross-Backbone Evaluation of Vision Sparse Autoencoders Reveals Backbone-Dominated Variance and Metric Dissociations},
-  author    = {TODO: maintainer to fill in author list},
+  author    = {Vijayraj Gohil, Diwei Sheng, Chen Feng},
   booktitle = {ICML 2026 Mechanistic Interpretability Workshop},
   year      = {2026}
 }
 ```
-
+Also in review at NeurIPS evaluation and datasets track.
 ## License
 
 Apache 2.0. See [LICENSE](LICENSE).
