@@ -8,7 +8,7 @@ VISAEBench is a benchmark for evaluating Sparse Autoencoders (SAEs) trained on V
 ## Installation
 
 ```bash
-# From PyPI (after v0.1.0 release)
+# From PyPI 
 pip install visaebench
 
 # From source (development)
